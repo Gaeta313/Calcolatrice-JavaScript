@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto 4</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>La mia calcolatrice in javascript</h2>
+        <div class="divisore">
+            <table>
+
+                <tr>
+                    <th><label for="textarea">Log Operazioni</label></td>
+                </tr>
+                <tr>
+                    <td><textarea disabled name="LogOperazioni" id="textarea" cols="15" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td> <button onclick=refresh()>Refresh</button></td>
+                </tr>
+            </table>
+            <table>
+                <div class="box">
+                    <div class="solarbar" onclick=solarAlert()>
+                        <div class="solar"></div>
+                        <div class="solar"></div>
+                        <div class="solar"></div>
+                        <div class="solar"></div>
+                    </div>
+                </div>
+                <caption>Casio fx-3050</caption>
+                <tr>
+                    <th colspan="4"><input disabled type="text" id="display"></th>
+                </tr>
+                <tr>
+                    <td><button onclick=parentesiOpen()>(</button> </td>
+                    <td><button onclick=parentesiClosed()>)</button></td>
+                    <td><button onclick=pi()>π</button></td>
+                    <td><button onclick=potenza()>^</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick=sette()>7</button> </td>
+                    <td><button onclick=otto()>8</button></td>
+                    <td><button onclick=nove()>9</button></td>
+                    <td><button class="operatori" onclick=divisione()>/</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick=quattro()>4</button> </td>
+                    <td><button onclick=cinque()>5</button></td>
+                    <td><button onclick=sei()>6</button></td>
+                    <td><button class="operatori" onclick=moltiplicazione()>x</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick=uno()>1</button> </td>
+                    <td><button onclick=due()>2</button></td>
+                    <td><button onclick=tre()>3</button></td>
+                    <td><button class="operatori" onclick=sottrazione()>-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="C" onclick=C()>C</button> </td>
+                    <td><button onclick=zero()>0</button></td>
+                    <td><button onclick=virgola()>.</button></td>
+                    <td><button class="operatori" onclick=somma()>+</button></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="uguale">
+                        <button onclick=uguale()>=</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h3>Controlli supplementari implementati</h2>
+            <p>I controlli implementati consentono di impedire :</p>
+            <dl>
+                <dt>L'inserimento di un numero intero preceduto da uno o più zero : </dt>
+                <dd class="negato">non consentito: es. <span>"0003"</span> <span>"00.123"</span> <span> "02"</span></dd>
+                <dt>L'inizio di un espressione con un operatore matematico al di fuori del 'meno' :</dt>
+                <dd class="negato">Non consentito: es. <span>"+52 / 6"</span> <span>"*16 + 4"</span> <span>"/8 +
+                        2"</span> </dd>
+                <dd class="consentito">Consentito : es.<span>"-5 + 2"</span> <span>"-5 * -3"</span></dd>
+                <dt>La ripetizione consecutiva di un operatore matematico, oppure la concatenazione di operatori
+                    matematici diversi :</dt>
+                <dd class="negato">Non consentito: es. <span>"5 + + 6"</span> <span>" -4 + * 5 "</span>
+                    <span>"--5"</span> </dd>
+                <dd class="consentito"> Nel caso del 'meno è consentito succedere un operatore diverso: es. <span>"5 *
+                        -3"</span></dd>
+                <dt>L'inserimento di più di una virgola(punto) all'interno dello stesso numero : </dt>
+                <dd class="negato">Non consentito : <span>"0.03.5"</span> <span>"0..2"</span></dd>
+            </dl>
+    </div>
+
+    <script src="js/script.js">
+
+    </script>
+</body>
+
+</html>
